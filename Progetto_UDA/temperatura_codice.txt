@@ -52,8 +52,11 @@ void loop() {
     digitalWrite(verde, HIGH);
   }
  
-  Serial.print("Temperatura: ");
+  Serial.print("Temeprature: ");
+  Serial.println(t);
+  Serial.print("Humidity: ");
   Serial.println(t);
  
   delay(500);
+
 }
