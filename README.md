@@ -19,8 +19,7 @@ Il sistema si basa sul paradigma di sincronizzazione **Produttore-Consumatore**:
 * **Python 3.x:** Sviluppo in Visual Studio Code.
     * `Dear PyGui`: Per la creazione dell'interfaccia grafica (GUI).
     * `pyserial`: Per la gestione della comunicazione seriale.
-    * `threading` & `queue`: Per implementare il paradigma consumatore su thread separati.
-    * `csv`: Per il salvataggio del log storico dei dati.
+    * `csv`: Per il salvataggio dello storico dei dati.
 
 ## ⚙️ Strategie di Sincronizzazione
 Per garantire un sistema fluido e reattivo, sono state adottate le seguenti tecniche:
