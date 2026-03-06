@@ -10,7 +10,7 @@ Il sistema si basa sul paradigma di sincronizzazione **Produttore-Consumatore**:
 ## 🛠️ Hardware Utilizzato
 * **Microcontrollore:** Arduino
 * **Sensore:** DHT11 (Temperatura e Umidità)
-* **Segnalazione Visiva:** LED (Rosso e Verde) per indicazione dello stato di comfort o allerta.
+* **Segnalazione Visiva:** LED (rosso, verde e blu) per indicazione dello stato di comfort o allerta.
 * **Segnalazione Acustica:** **Buzzer** (aggiunto per segnali acustici in caso di superamento soglie critiche).
 * **Comunicazione:** Cavo USB (Protocollo Seriale).
 
@@ -34,8 +34,8 @@ Il sistema monitora la temperatura e reagisce in base a tre scenari principali:
 | Stato | Condizione | LED | Buzzer | Azione Suggerita |
 | :--- | :--- | :--- | :--- | :--- |
 | **Alert Critico** | Temperatura > Soglia Max | Rosso | **ON (Beep)** | "Riscaldamento eccessivo / Aprire finestre" |
-| **Comfort / Eco** | Temperatura Ottimale | Verde | OFF | "Ambiente ottimale" |
-| **Stand-by / Freddo** | Temperatura < Soglia Min | Spenti | **ON (Beep)** | "Temperatura bassa / Controllare isolamento" |
+| **Comfort / Eco** | Temperatura Ottimale | Blu | **ON** | "Ambiente ottimale" |
+| **Stand-by / Freddo** | Temperatura < Soglia Min | Verde | **ON (Beep)** | "Temperatura bassa / Controllare isolamento" |
 
 ## 📂 Struttura del Repository
 * `/arduino`: Contiene lo sketch `.ino` per la lettura del sensore e la gestione di LED e Buzzer.
@@ -44,4 +44,4 @@ Il sistema monitora la temperatura e reagisce in base a tre scenari principali:
 * `README.md`: Relazione tecnica e documentazione del progetto.
 
 ---
-*Progetto realizzato per sensibilizzare sull'uso consapevole dell'energia attraverso la tecnologia.*
+
