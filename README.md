@@ -33,15 +33,9 @@ Il sistema monitora la temperatura e reagisce in base a tre scenari principali:
 
 | Stato | Condizione | LED | Buzzer | Azione Suggerita |
 | :--- | :--- | :--- | :--- | :--- |
-| **Alert Critico** | Temperatura > Soglia Max | Rosso | **ON (Beep)** | "Riscaldamento eccessivo / Aprire finestre" |
-| **Comfort / Eco** | Temperatura Ottimale | Blu | **ON** | "Ambiente ottimale" |
-| **Stand-by / Freddo** | Temperatura < Soglia Min | Verde | **ON (Beep)** | "Temperatura bassa / Controllare isolamento" |
-
-## 📂 Struttura del Repository
-* `/arduino`: Contiene lo sketch `.ino` per la lettura del sensore e la gestione di LED e Buzzer.
-* `/python`: Contiene lo script per la GUI in Dear PyGui e la gestione del thread consumatore.
-* `/data`: Esempio di file `storico.csv` con timestamp, temperatura e umidità.
-* `README.md`: Relazione tecnica e documentazione del progetto.
-
+| **Caldo** | Temperatura > Soglia Max | Rosso | **ON (Beep)** | "Riscaldamento eccessivo / Aprire finestre" |
+| **Comfory** | Temperatura Ottimale | Blu | **ON** | "Ambiente ottimale" |
+| **Freddo** | Temperatura < Soglia Min | Verde | **ON (Beep)** | "Temperatura bassa / Controllare isolamento" |
 ---
 
+**📂 Progetto svolto da:** Regio, Gaburri e Bianolini
