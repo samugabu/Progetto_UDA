@@ -1,49 +1,47 @@
 # Sistema di Monitoraggio per l'Efficienza Energetica 🌡️🌱
 
-[cite_start]Questo progetto nasce come **Unità di Apprendimento (Uda) sulla Sostenibilità Ambientale**[cite: 2]. [cite_start]L'obiettivo è realizzare un sistema IoT completo per il monitoraggio dei parametri ambientali interni, al fine di ottimizzare i consumi energetici e promuovere comportamenti consapevoli[cite: 3, 5].
+Questo progetto è stato sviluppato come **Unità di Apprendimento (UdA) sulla Sostenibilità Ambientale**. L'obiettivo è la realizzazione di un sistema IoT per il monitoraggio oggettivo dei parametri ambientali interni, volto a ottimizzare i consumi energetici e promuovere comportamenti sostenibili.
 
 ## 📌 Descrizione del Progetto
-[cite_start]Il sistema adotta il paradigma **Produttore-Consumatore** per gestire il flusso di dati[cite: 7]:
-1.  [cite_start]**Produttore (Arduino):** Acquisisce dati di temperatura e umidità e li invia tramite seriale[cite: 8, 14].
-2.  [cite_start]**Consumatore (Python):** Riceve i dati, li elabora, li salva su file CSV e li visualizza in tempo reale su una GUI[cite: 21, 32, 38].
+Il sistema si basa sul paradigma di sincronizzazione **Produttore-Consumatore**:
+1.  **Produttore (Arduino):** Un'unità di acquisizione che traduce i fenomeni fisici in segnali digitali e li invia tramite comunicazione seriale.
+2.  **Consumatore (Python):** Un'unità di analisi che riceve i dati, li elabora, gestisce lo storico in formato CSV e visualizza i risultati in tempo reale su un'interfaccia grafica.
 
 ## 🛠️ Hardware Utilizzato
-* [cite_start]**Microcontrollore:** Arduino [cite: 10]
-* [cite_start]**Sensore:** DHT11 (Temperatura e Umidità) [cite: 10]
-* [cite_start]**Segnalazione Visiva:** LED (Rosso e Verde) per indicazione stato comfort/alert [cite: 25]
-* **Segnalazione Acustica:** Buzzer (Attivato in caso di temperature critiche - Alte/Bassee)
-* [cite_start]**Comunicazione:** Cavo USB per protocollo Seriale [cite: 11]
+* **Microcontrollore:** Arduino
+* **Sensore:** DHT11 (Temperatura e Umidità)
+* **Segnalazione Visiva:** LED (Rosso e Verde) per indicazione dello stato di comfort o allerta.
+* **Segnalazione Acustica:** **Buzzer** (aggiunto per segnali acustici in caso di superamento soglie critiche).
+* **Comunicazione:** Cavo USB (Protocollo Seriale).
 
-## 💻 Software e Librerie
-* [cite_start]**Arduino IDE:** Libreria `DHT sensor library` [cite: 17]
-* **Python 3.x:**
-    * [cite_start]`Dear PyGui`: Per l'interfaccia grafica [cite: 13]
-    * `pyserial`: Per la comunicazione con Arduino
-    * [cite_start]`threading`: Per la gestione dei processi paralleli [cite: 23]
-    * [cite_start]`pandas` / `csv`: Per il salvataggio dei dati [cite: 32]
+## 💻 Stack Tecnologico
+* **Arduino IDE:** Utilizzo della libreria "DHT sensor library" per la gestione del sensore.
+* **Python 3.x:** Sviluppo in Visual Studio Code.
+    * `Dear PyGui`: Per la creazione dell'interfaccia grafica (GUI).
+    * `pyserial`: Per la gestione della comunicazione seriale.
+    * `threading` & `queue`: Per implementare il paradigma consumatore su thread separati.
+    * `csv`: Per il salvataggio del log storico dei dati.
 
-## ⚙️ Strategie di Sincronizzazione e Implementazione
-[cite_start]Il progetto implementa diverse strategie per garantire l'efficienza e la stabilità del sistema:
+## ⚙️ Strategie di Sincronizzazione
+Per garantire un sistema fluido e reattivo, sono state adottate le seguenti tecniche:
+* **Delay-less Coding:** Su Arduino, la funzione `millis()` gestisce il campionamento (ogni 10-20 secondi) senza bloccare l'esecuzione del codice.
+* **Protocollo a Pacchetti:** I dati vengono inviati come stringhe terminate da newline (`\n`) per sincronizzare correttamente la lettura lato PC.
+* **Multithreading:** La lettura della seriale e l'aggiornamento della GUI viaggiano su thread distinti per evitare rallentamenti o freeze dell'interfaccia.
 
-* [cite_start]**Delay-less Coding (Arduino):** L'acquisizione dei dati avviene ogni 10-20 secondi utilizzando la funzione `millis()` al posto di `delay()`, evitando il blocco del microcontrollore[cite: 19, 31].
-* [cite_start]**Protocollo a Pacchetti:** I dati vengono inviati come stringhe terminate dal carattere newline (`\n`), facilitando la sincronizzazione della lettura lato PC[cite: 12, 19].
-* **Multithreading (Python):** La lettura della porta seriale avviene su un thread separato rispetto alla GUI. [cite_start]Questo evita che l'interfaccia si blocchi durante l'attesa dei dati[cite: 23, 37].
-* [cite_start]**Gestione Buffer:** Viene utilizzata una coda (`queue`) per trasferire in modo sicuro i dati tra il thread di lettura e quello di visualizzazione[cite: 23].
+## 🚨 Logica di Controllo e Alert
+Il sistema monitora la temperatura e reagisce in base a tre scenari principali:
 
-## 🚨 Logica di Alert
-| Stato | Condizione | LED | Buzzer | [cite_start]Suggerimento GUI [cite: 29] |
+| Stato | Condizione | LED | Buzzer | Azione Suggerita |
 | :--- | :--- | :--- | :--- | :--- |
-| **Critico (Caldo)** | Temp > Soglia Max | [cite_start]Rosso [cite: 26] | ON | "Riscaldamento eccessivo - Aprire finestre" |
-| **Comfort / Eco** | Temp Ottimale | [cite_start]Verde [cite: 27] | OFF | "Ambiente Ottimale" |
-| **Stand-by / Freddo**| Temp < Soglia Min | [cite_start]Spenti [cite: 28] | ON | "Temperatura bassa - Accendere riscaldamento" |
+| **Alert Critico** | Temperatura > Soglia Max | Rosso | **ON (Beep)** | "Riscaldamento eccessivo / Aprire finestre" |
+| **Comfort / Eco** | Temperatura Ottimale | Verde | OFF | "Ambiente ottimale" |
+| **Stand-by / Freddo** | Temperatura < Soglia Min | Spenti | **ON (Beep)** | "Temperatura bassa / Controllare isolamento" |
 
 ## 📂 Struttura del Repository
-```text
-├── Arduino/
-│   └── monitoraggio_temperatura.ino  # Codice sorgente Arduino [cite: 43]
-├── Python/
-│   ├── main_gui.py                   # Applicazione Dear PyGui [cite: 44]
-│   └── data_logger.py                # Gestione salvataggio CSV
-├── Data/
-│   └── storico_misure.csv            # Esempio di file dati salvato [cite: 45]
-└── README.md                         # Relazione tecnica del progetto
+* `/arduino`: Contiene lo sketch `.ino` per la lettura del sensore e la gestione di LED e Buzzer.
+* `/python`: Contiene lo script per la GUI in Dear PyGui e la gestione del thread consumatore.
+* `/data`: Esempio di file `storico.csv` con timestamp, temperatura e umidità.
+* `README.md`: Relazione tecnica e documentazione del progetto.
+
+---
+*Progetto realizzato per sensibilizzare sull'uso consapevole dell'energia attraverso la tecnologia.*
