@@ -1,17 +1,17 @@
 #include "DHT.h"
 #define DHTTYPE DHT11
- 
+
 const int rosso = 10;
 const int verde = 11;
 const int blu = 12;
 const int buzzer = 5;
 const int sensore = 8;
- 
+
 DHT dht(sensore, DHTTYPE);
- 
+
 const int TempMax = 22;
 const int TempMin = 14;
- 
+
 void setup() {
   Serial.begin(9600);
   dht.begin();
@@ -52,11 +52,10 @@ void loop() {
     digitalWrite(verde, HIGH);
   }
  
-  Serial.print("Temeprature: ");
+  Serial.print("Temperature: ");
   Serial.println(t);
   Serial.print("Humidity: ");
-  Serial.println(t);
+  Serial.println(h);
  
   delay(500);
-
 }
