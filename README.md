@@ -16,7 +16,7 @@ Il sistema si basa sul paradigma di sincronizzazione **Produttore-Consumatore**:
 
 ##  Stack Tecnologico
 * **Arduino IDE:** Utilizzo della libreria "DHT sensor library" per la gestione del sensore.
-* **Python 3.x:** Sviluppo in Visual Studio Code.
+* **Python:** Sviluppo in Visual Studio Code.
     * `Dear PyGui`: Per la creazione dell'interfaccia grafica (GUI).
     * `pyserial`: Per la gestione della comunicazione seriale.
     * `csv`: Per il salvataggio dello storico dei dati.
