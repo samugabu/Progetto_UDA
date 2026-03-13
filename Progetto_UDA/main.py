@@ -5,14 +5,14 @@ from datetime import datetime
 import dearpygui.dearpygui as dpg
 
 porta = 'COM4'
-t = 9600
+bound_rate = 9600
 file = "monitoraggio_temperature.csv"
 
 with open(file, "w", newline='') as f:
     writer = csv.writer(f)
     writer.writerow(["timestamp", "Temperature"])
 
-ser = serial.Serial(porta, t, timeout=0.1)
+ser = serial.Serial(porta, bound_rate, timeout=0.1)
 
 data_x = [] 
 data_y = []
