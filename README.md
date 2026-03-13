@@ -36,6 +36,6 @@ Il sistema monitora la temperatura e reagisce in base a tre scenari principali:
 | **Comfort** | Temperatura Ottimale | Verde | **ON** | "Ambiente ottimale" |
 | **Freddo** | Temperatura < Soglia Min(14) | Blu | **ON (Beep)** | "Temperatura bassa / Controllare isolamento" |
 
-## Lavoratori
+## Team del progetto
 
 **Progetto svolto da:** Matteo Regio, Samuele Gaburri e Daniele Bianolini
