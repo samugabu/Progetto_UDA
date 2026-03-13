@@ -20,7 +20,7 @@ start_time = time.time()
 
 def update_data():
     if ser.in_waiting > 0:
-        line = ser.readline().decode('utf-8', errors='ignore').strip()
+        line = ser.readline().decode('utf-8').strip()
         
         if not line:
             return
