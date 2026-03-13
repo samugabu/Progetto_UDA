@@ -37,4 +37,4 @@ Il sistema monitora la temperatura e reagisce in base a tre scenari principali:
 | **Freddo** | Temperatura < Soglia Min(14) | Verde | **ON (Beep)** | "Temperatura bassa / Controllare isolamento" |
 ---
 
-**📂 Progetto svolto da:** Regio, Gaburri e Bianolini
+**📂 Progetto svolto da:** Matteo Regio, Samuele Gaburri e Daniele Bianolini
