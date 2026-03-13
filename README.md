@@ -32,4 +32,7 @@ Il sistema monitora la temperatura e reagisce in base a tre scenari principali:
 
 ## Team del progetto
 
-**Progetto svolto da:** Matteo Regio, Samuele Gaburri e Daniele Bianolini
+**Progetto svolto da:** 
+Matteo Regio - Arduino Code
+Samuele Gaburri - Py Code
+Daniele Bianolini - Montaggio Fisico e Tinkercad
