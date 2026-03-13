@@ -1,4 +1,4 @@
-# Sistema di Monitoraggio per l'Efficienza Energetica 
+# Sistema di Monitoraggio per Temperatura e Umidità
 
 Questo progetto è stato sviluppato come **Unità di Apprendimento (UdA) sulla Sostenibilità Ambientale**. L'obiettivo è la realizzazione di un sistema IoT per il monitoraggio oggettivo dei parametri ambientali interni, volto a ottimizzare i consumi energetici e promuovere comportamenti sostenibili.
 
