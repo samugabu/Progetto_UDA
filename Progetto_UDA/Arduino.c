@@ -26,7 +26,7 @@ void loop() {
   float t = dht.readTemperature();
  
   if (isnan(h) || isnan(t)) {
-    return;
+    Serial.print("Errore!! Impossibile leggere i dati");
   }
  
   digitalWrite(rosso, LOW);
