@@ -33,7 +33,7 @@ Il sistema monitora la temperatura e reagisce in base a tre scenari principali:
 | Stato | Condizione | LED | Buzzer | Azione Suggerita |
 | :--- | :--- | :--- | :--- | :--- |
 | **Caldo** | Temperatura > Soglia Max(22) | Rosso | **ON (Beep)** | "Riscaldamento eccessivo / Aprire finestre" |
-| **Comfort** | Temperatura Ottimale | Verde | **ON** | "Ambiente ottimale" |
+| **Comfort** | Temperatura Ottimale | Verde | **OFF** | "Ambiente ottimale" |
 | **Freddo** | Temperatura < Soglia Min(14) | Blu | **ON (Beep)** | "Temperatura bassa / Controllare isolamento" |
 
 ## Team del progetto
