@@ -21,12 +21,6 @@ Il sistema si basa sul paradigma di sincronizzazione **Produttore-Consumatore**:
     * `pyserial`: Per la gestione della comunicazione seriale.
     * `csv`: Per il salvataggio dello storico dei dati.
 
-##  Strategie di Sincronizzazione
-Per garantire un sistema fluido e reattivo, sono state adottate le seguenti tecniche:
-* **Delay-less Coding:** Su Arduino, la funzione `millis()` gestisce il campionamento (ogni 10-20 secondi) senza bloccare l'esecuzione del codice.
-* **Protocollo a Pacchetti:** I dati vengono inviati come stringhe terminate da newline (`\n`) per sincronizzare correttamente la lettura lato PC.
-* **Multithreading:** La lettura della seriale e l'aggiornamento della GUI viaggiano su thread distinti per evitare rallentamenti o freeze dell'interfaccia.
-
 ##  Logica di Controllo e Alert
 Il sistema monitora la temperatura e reagisce in base a tre scenari principali:
 
